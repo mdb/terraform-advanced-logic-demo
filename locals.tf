@@ -21,8 +21,8 @@ locals {
     for repo_tree in data.github_tree.all : [
       for entry in repo_tree.entries : {
         repo        = repo_tree.repository
-        folder_name = try("${local.owner}_${replace(repo_tree.repository, ".", "")}_${split("/", entry.path)[length(split("/", entry.path)) - 2]}", "fallback")
-      } if endswith(entry.path, "Dockerfile") && length(split("/", entry.path)) > 1
+        folder_name = try("${local.owner}_${replace(repo_tree.repository, ".", "")}_${split("/", entry.path)[length(split("/", entry.path)) - 2]}", "${local.owner}_${replace(repo_tree.repository, ".", "")}_root")
+      } if endswith(entry.path, "Dockerfile")
     ]
   ]))
 

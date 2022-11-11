@@ -1,5 +1,5 @@
 grafana:
-	docker-compose up
+	docker-compose up --detach
 .PHONY: grafana
 
 tf-init:

@@ -2,7 +2,7 @@
 
 A demo Terraform configuration illustrating a few semi-advanced Terraform capabilities, namely the expression of moderately complex logic.
 
-`terraform-advanced-logic-demo` is the reference example accompanying the [Advanced Terraform Logic](TODO) blog post.
+`terraform-advanced-logic-demo` is the reference example accompanying the [Advanced Terraform Logic](https://mikeball.info/blog/advanced-terraform-logic/) blog post.
 
 ## Try it out
 

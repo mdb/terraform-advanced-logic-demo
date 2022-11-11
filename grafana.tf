@@ -1,15 +1,15 @@
 resource "grafana_folder" "all" {
-  for_each = { for folder in local.grafana_folders : folder.folder_name => folder }
+  for_each = toset(local.grafana_folders)
 
-  title = each.value.folder_name
+  title = each.value
 }
 
 resource "grafana_dashboard" "all" {
-  for_each = grafana_folder.all
+  for_each = { for dashboard in local.grafana_dashboards : dashboard.dashboard => dashboard }
 
-  folder      = each.value.id
+  folder      = grafana_folder.all[each.value.folder].id
   config_json = jsonencode({
-    title = each.value.title,
-    uid   = replace(lower(each.value.title), "_", "-")
+    title = each.value.dashboard,
+    uid   = replace(lower(each.value.dashboard), "_", "-")
   })
 }

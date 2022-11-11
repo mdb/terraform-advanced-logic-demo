@@ -1,0 +1,5 @@
+---
+- dashboard: vinyldns_foo_bar
+  folder: vinyldns_foo
+- dashboard: vinyldns_baz_bim
+  folder: vinyldns_baz

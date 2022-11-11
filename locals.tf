@@ -28,13 +28,9 @@ locals {
     ]
   ]))
 
-  # static_folders is a list of static folder configurations.
+  # static_folders is a list of static folder configurations, as specified by additional_dashboards.yaml
   # This enables supplementing local.grafana_folders with additional, statically defined folder details.
-  static_dashboards = [{
-    repo      = "foo"
-    folder    = "${local.owner}_foo"
-    dashboard = "${local.owner}_foo_bar"
-  }]
+  static_dashboards = yamldecode(file("${path.module}/additional_dashboards.yaml"))
 
   # grafana_dashboards is the combination of the dynamic_dashboards and static_dashboards
   grafana_dashboards = concat(local.dynamic_dashboards, local.static_dashboards)

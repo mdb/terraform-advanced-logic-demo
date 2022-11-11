@@ -1,0 +1,13 @@
+name: Terraform
+
+on: [push, pull_request]
+
+jobs:
+  terraform:
+    name: Terraform
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: hashicorp/setup-terraform@v2
+    - run: make grafana
+    - run: make tf-plan

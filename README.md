@@ -1,3 +1,5 @@
+[![Terraform](https://github.com/mdb/terraform-advanced-logic-demo/actions/workflows/main.yaml/badge.svg)](https://github.com/mdb/terraform-advanced-logic-demo/actions/workflows/main.yaml)
+
 # terraform-advanced-logic-demo
 
 A demo Terraform configuration illustrating a few semi-advanced Terraform capabilities, namely the expression of moderately complex logic.

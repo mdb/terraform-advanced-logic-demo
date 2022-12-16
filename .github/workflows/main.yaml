@@ -1,3 +1,4 @@
+---
 name: Terraform
 
 on: [push, pull_request]
@@ -7,7 +8,9 @@ jobs:
     name: Terraform
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: hashicorp/setup-terraform@v2
-    - run: make grafana
-    - run: make tf-plan
+      - uses: actions/checkout@v3
+      - uses: hashicorp/setup-terraform@v2
+      - run: make grafana
+      - run: make tf-plan
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
